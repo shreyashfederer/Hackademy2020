@@ -1,0 +1,952 @@
+<html>
+
+	<ul class="nav">
+		<li class="navItem"><a href="#">Home</a></li>
+		<li class="navItem"><a href="#">Offers</a></li>
+		<li class="navItem"><a href="#">Notifications</a></li>
+        <li class="navItem"><a href="#">Create Budget</a></li>
+        <li class="navItem"><a href="#">Upload Bills</a></li>
+		<li class="navItem"><a href="#">Graphs</a></li>
+
+	  </ul>
+
+	  <style>
+	  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+* {
+  margin:0px;
+  padding:0px;
+  font-family:'Open Sans', sans-serif;
+}
+body {
+	background: url("{{ url_for('static', filename='i.jpg') }}");
+}
+.nav {
+  list-style-type:none;
+  display:flex;
+  flex-wrap: nowrap;
+  width:100%;
+  background:#222;
+}
+.navItem, .navItem a {
+  display:inline-block;
+  flex-grow: 1;
+}
+.navItem a {
+  width:100%;
+  padding-top:30px;
+  padding-bottom:30px;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  text-shadow: 1px 1px 2px rgba(34,34,34,0.4);
+  font-weight:600;
+  font-size:18px;
+}
+.navItem:nth-of-type(1) {
+  border-bottom:2px solid #D60F3A;
+}
+.navItem:nth-of-type(1) a:hover {
+  background:#D60F3A;
+}
+.navItem:nth-of-type(2) {
+  border-bottom:2px solid #8317AD;
+}
+.navItem:nth-of-type(2) a:hover {
+  background:#8317AD;
+}
+.navItem:nth-of-type(3) {
+  border-bottom:2px solid #3116DE;
+}
+.navItem:nth-of-type(3) a:hover {
+  background:#3116DE;
+}
+.navItem:nth-of-type(4) {
+  border-bottom:2px solid #0E8FC2;
+}
+.navItem:nth-of-type(4) a:hover {
+  background:#0E8FC2;
+}
+.navItem:nth-of-type(5) {
+  border-bottom:2px solid #0EC23E;
+}
+.navItem:nth-of-type(5) a:hover {
+  background:#0EC23E;
+}
+.navItem:nth-of-type(6) {
+  border-bottom:2px solid #CFCF13;
+}
+.navItem:nth-of-type(6) a:hover {
+  background:#CFCF13;
+}
+</style>
+</html>
+<html>
+        <div class="top">
+                <div class="budget">
+    
+                    <div class="budget__title">
+                        Available Budget in <span class="budget__title--month">%Month%</span>:
+                    </div>
+                    
+                    <div class="budget__value">+ 2,345.64</div>
+    
+                    <div class="container">
+                        <div class="budget__left">
+                            <div class="budget__income--value">+4,300.00</div>
+                        </div>
+    
+                        <div class="budget__right">
+                            <div class="budget__expenses--value">-1.954.36</div>
+                            <div class="budget__expenses--percentage">45%</div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            
+            
+            
+            <div class="bottom">
+                <div class="add">
+                    <select class="add__type">
+                        <option value="inc" selected>+</option>
+                        <option value="exp">-</option>
+                    </select>
+                    <input type="text" class="add__description" placeholder="Add description">
+                    <input type="number" class="add__value" placeholder="Value">
+                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+                </div>
+                
+                <div class="container">
+                    <div class="income">
+                        <h2 class="income__title">Income</h2>
+                        
+                        <div class="income__list">
+                           
+                            <!--
+                            <div class="item" id="income-0">
+                                <div class="item__description">Salary</div>
+                                <div class="right">
+                                    <div class="item__value">+ 2,100.00</div>
+                                    <div class="item__delete">
+                                        <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item" id="income-1">
+                                <div class="item__description">Sold car</div>
+                                <div class="right">
+                                    <div class="item__value">+ 1,500.00</div>
+                                    <div class="item__delete">
+                                        <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="expenses">
+                        <h2 class="expenses__title">Expenses</h2>
+                        
+                        <div class="expenses__list">
+                           
+                            <!--
+                            <div class="item" id="expense-0">
+                                <div class="item__description">Apartment rent</div>
+                                <div class="right">
+                                    <div class="item__value">- 900.00</div>
+                                    <div class="item__percentage">21%</div>
+                                    <div class="item__delete">
+                                        <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="item" id="expense-1">
+                                <div class="item__description">Grocery shopping</div>
+                                <div class="right">
+                                    <div class="item__value">- 435.28</div>
+                                    <div class="item__percentage">10%</div>
+                                    <div class="item__delete">
+                                        <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <style>
+            
+            /**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(-50deg, #444fe2, #86d8eb);
+    background: -webkit-linear-gradient(-50deg, #444fe2, #86d8eb);
+    background: -moz-linear-gradient(-50deg, #444fe2, #86d8eb);
+    background: -o-linear-gradient(-50deg, #444fe2, #86d8eb);
+    color: #555;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
+    font-weight: 400;
+}
+
+.red {
+    color: #FF5049 !important;
+}
+.red-focus { border: 1px solid #FF5049 !important; }
+
+.red-focus:focus { box-shadow: 0 0 0 1px rgba(255, 80, 73, .6) !important; }
+
+.top .container {
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+/**********************************************
+*** TOP PART
+**********************************************/
+
+.top {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.budget {
+    margin: auto 0;
+    color: #fff;
+    width: 100%;
+}
+
+.budget__title {
+    text-align: center;
+    font-weight: 300;
+}
+
+.budget__value {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: .05em;
+}
+
+.budget__income--value {
+    background-color: #2fd66d;
+    
+}
+
+.budget__expenses--value {
+    background-color: #e74848;
+}
+
+.budget__expenses--percentage {
+    background-color: #9c1e1e;
+    text-align: center;
+    max-width: 50%;
+    margin-top: 1rem;
+    margin-left: auto;
+    border-radius: .8rem;
+}
+
+
+/**********************************************
+*** BOTTOM PART
+**********************************************/
+
+.bottom {
+    max-width: 576px;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 60vh;
+    border-radius: 2rem;
+}
+
+/***** FORM *****/
+.add {
+    padding: .8rem;
+    margin: 0 auto;
+    text-align: center;
+    background-color: transparent;
+}
+
+.add__type,
+.add__description,
+.add__value {
+    border: 1px solid #2fd66d;
+    background-color: #fff;
+    color: #575757;
+    height: 2.3rem;
+    border-radius: 2rem;
+    transition: border ease-in-out .3s;
+}
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus { box-shadow: 0 0 0 1px rgba(47, 214, 109, .6); }
+
+.add__type {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.add__description,
+.add__value {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+}
+
+.add__btn {
+    font-size: 35px;
+    background: none;
+    border: none;
+    color: #2fd66d;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+}
+
+.add__btn:active { transform: translateY(2px); }
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus {
+    outline: none;
+    border: 1px solid #2fd66d;
+}
+
+.add__btn:focus { outline: none; }
+
+/***** LISTS *****/
+
+.bottom .container { margin: 2rem; }
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.income__title,
+.expenses__title { text-align: center; }
+
+.income__title { color: #2fd66d; }
+.expenses__title { color: #FF5049; }
+
+.item {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item:first-child { border-top: 1px solid #e7e7e7; }
+
+.income .item:nth-child(even),
+.expenses .item:nth-child(odd) { background-color: #fff; }
+
+.right { display: flex; }
+
+.item__value { transition: transform 0.3s; }
+
+.item__percentage {
+    margin-left: 10px;
+    transition: transform 0.3s;
+    font-size: 11px;
+    background-color: #FFDAD9;
+    padding: 3px;
+    border-radius: 3px;
+    width: 32px;
+    text-align: center;
+}
+
+.income .item__value,
+.income .item__delete--btn {
+    color: #28B9B5;
+}
+
+.expenses .item__value,
+.expenses .item__percentage,
+.expenses .item__delete--btn {
+    color: #FF5049;
+}
+
+.item__delete--btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.item__delete--btn:focus { outline: none; }
+.item__delete--btn:active { transform: translateY(2px); }
+
+.item:hover .item__delete--btn { display: block; }
+.item:hover .item__value { transform: translateX(-20px); }
+.item:hover .item__percentage { transform: translateX(-20px); }
+
+
+/**********************************************
+*** MEDIA QUERIES
+**********************************************/
+
+@media (min-width: 992px) {
+
+    .bottom { max-width: 768px; }
+
+}
+
+@media (min-width: 768px) {
+
+    /* TOP PART */
+    .budget__title { font-size: 1.5em; }
+
+    .budget__value { font-size: 7.5em; }
+
+    .budget__income--value,
+    .budget__expenses--value {
+        border-radius: 4rem;
+        font-size: 1.5em;
+        padding: .5rem 1rem;
+    }
+
+    .budget__expenses--percentage { padding: .2rem .5rem; }
+
+
+    /* BOTTOM PART */
+    .add__type { width: 8%; }
+
+    .add__type,
+    .add__description,
+    .add__value { margin-right: 10px; }
+
+    .add__description { width: 60%;}
+
+    .add__value { width: 12%;}
+
+    .bottom .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .income,
+    .expenses { width: 48%; }
+
+}
+
+@media (max-width: 767px) {
+
+    /* TOP PART */
+    .budget__title { font-size: 1.1em; }
+
+    .budget__value { font-size: 6em; }
+
+    .budget__income--value,
+    .budget__expenses--value {
+        border-radius: 2rem;
+        font-size: 1.15em;
+        padding: .3rem .8rem;
+    }
+
+    .budget__expenses--percentage { padding: .1rem .3rem; }
+
+
+    /* BOTTOM PART */
+    .add__type { width: 10%; }
+
+    .add__type,
+    .add__description,
+    .add__value { margin-right: 2px; }
+
+    .add__description { width: 50%;}
+
+    .add__value { width: 20%;}
+
+    .bottom .container { display: block; }
+
+}
+
+@media (max-width: 575px) {
+
+    .budget__value { font-size: 5.5em; }
+
+}
+
+@media (max-width: 375px) {
+
+    .budget__value { font-size: 5.2em; }
+
+    .add__type { width: 11%; }
+
+    .add__value { width: 22%; }
+
+}
+</style>
+</html>
+
+<script>
+
+//BUDGET CONTROLLER
+var budgetController = (function() {
+
+var Expense = function(id, description, value) {
+    this.id = id;
+    this.description =  description;
+    this.value = value;
+    this.percentage = -1;
+};
+
+Expense.prototype.calcPercentage = function(totalIncome) {
+    if(totalIncome > 0) {
+        this.percentage = Math.round((this.value / totalIncome) * 100);
+    } else {
+        this.percentage = -1;
+    }
+
+};
+
+Expense.prototype.getPercentage = function() {
+    return this.percentage;
+}
+
+var Income = function(id, description, value) {
+    this.id = id;
+    this.description =  description;
+    this.value = value;
+};
+
+var calculateTotal = function(type) {
+    var sum = 0;
+    data.allItems[type].forEach(function(cur) {
+        sum += cur.value;
+    });
+    data.totals[type] = sum;
+};
+
+var data = {
+    allItems: {
+        exp: [],
+        inc: []
+    },
+    totals: {
+        exp: 0,
+        inc: 0
+    },
+    budget: 0,
+    percentage: -1
+};
+
+return {
+    addItem: function(type, des, val) {
+        var newItem, ID;
+
+        //Create new ID
+        if (data.allItems[type].length > 0) {
+            ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+        } else {
+            ID = 0;
+        }
+
+        //Create new Item based on "inc" pr "exp" type
+        if (type === "exp") {
+            newItem = new Expense(ID, des, val)
+        } else if (type === "inc"){
+            newItem = new Income(ID, des, val)
+        }
+
+        //Push it into our data structure
+        data.allItems[type].push(newItem);
+
+        //Return the new element
+        return newItem;
+
+    },
+
+    deleteItem: function(type, id) {
+        var ids, index;
+
+        var ids = data.allItems[type].map(function(current) {
+            return current.id;
+        });
+
+        index = ids.indexOf(id);
+
+        if (index !== -1) {
+            data.allItems[type].splice(index, 1);
+        }
+
+    },
+
+    calculateBudget: function() {
+
+        // Calculate total income and expenses
+        calculateTotal("exp");
+        calculateTotal("inc");
+
+        // Calculate the budget: income - expenses
+        data.budget = data.totals.inc - data.totals.exp;
+
+        // Calculate the percentage of income we spent
+        if (data.totals.inc > 0) {
+            data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+        } else {
+            data.percentage = -1;
+        }
+
+    },
+
+    calculatePercentages: function() {
+        data.allItems.exp.forEach(function(cur) {
+            cur.calcPercentage(data.totals.inc);
+        });
+    },
+
+    getPercentages: function() {
+        var allPerc = data.allItems.exp.map(function(cur) {
+            return cur.getPercentage();
+        });
+        return allPerc;
+    },
+
+    getBudget: function() {
+        return {
+            budget: data.budget,
+            totalInc: data.totals.inc,
+            totalExp: data.totals.exp,
+            percentage: data.percentage
+        }
+    },
+
+    testing: function() {
+        console.log(data);
+    }
+};
+
+})();
+
+
+//UI CONTROLLER
+var UIController = (function() {
+
+var DOMstrings = {
+    inputType: ".add__type",
+    inputDescription: ".add__description",
+    inputValue: ".add__value",
+    inputBtn: ".add__btn",
+    incomeContainer: ".income__list",
+    expensesContainer: ".expenses__list",
+    budgetLabel: ".budget__value",
+    incomeLabel: ".budget__income--value",
+    expensesLabel: ".budget__expenses--value",
+    percentageLabel: ".budget__expenses--percentage",
+    container: ".container",
+    expensesPercLabel: ".item__percentage",
+    dateLabel: ".budget__title--month"
+}
+
+var formatNumber = function(num, type) {
+    var numSplit, int, dec, type;
+    /*
+    + or - before number
+    exactly 2 decimal points
+    comma separating the thousands
+    */
+
+    num = Math.abs(num);
+    num = num.toFixed(2);
+
+    numSplit = num.split(".");
+
+    int = numSplit[0];
+    if (int.length > 3) {
+        int = int.substr(0, int.length - 3) + "," + int.substr(int.length - 3, 3);
+    }
+
+
+    dec = numSplit[1];
+
+    return (type === "exp" ? "-" : "+") + " " + int + "." + dec;
+};
+
+var nodeListForEach = function(list, callback) {
+    for (var i = 0; i < list.length; i++) {
+        callback(list[i], i);
+    };
+};
+
+return {
+    getInput: function() {
+        return {
+            type: document.querySelector(DOMstrings.inputType).value, //Will be either inc or exp
+            description: document.querySelector(DOMstrings.inputDescription).value,
+            value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
+        }
+    },
+
+    addListItem: function(obj, type) {
+        var html, newHtml, element;
+        // Create HTML string with placeholder text
+
+        if (type === "inc") {
+            element = DOMstrings.incomeContainer;
+
+            html = '<div class="item" id="income-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        } else if (type === "exp") {
+            element = DOMstrings.expensesContainer;
+
+            html = '<div class="item" id="expense-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        }
+
+        // Replace the placeholder text with some actual data
+        newHtml = html.replace("%id%", obj.id);
+        newHtml = newHtml.replace("%description%", obj.description);
+        newHtml = newHtml.replace("%value%", formatNumber(obj.value, type));
+
+        // Insert the HTML into the DOM
+        document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
+
+    },
+
+    deleteListItem: function(selectorID) {
+
+        var el = document.getElementById(selectorID);
+        el.parentNode.removeChild(el);
+
+    },
+
+    clearFields: function() {
+        var fields, fieldsArr;
+
+        fields = document.querySelectorAll(DOMstrings.inputDescription + ", " + DOMstrings.inputValue);
+
+        fieldsArr = Array.prototype.slice.call(fields);
+
+        fieldsArr.forEach(function(current) {
+            current.value = "";
+        });
+
+        fieldsArr[0].focus();
+        
+    },
+
+    displayBudget: function(obj) {
+        var type;
+        obj.budget > 0 ? type = "inc" : type = "exp";
+
+        document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
+        document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, "inc");
+        document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, "exp");
+
+        if (obj.percentage > 0) {
+            document.querySelector(DOMstrings.percentageLabel).textContent = obj.percentage + "%";
+        } else {
+            document.querySelector(DOMstrings.percentageLabel).textContent = "---";
+        }
+
+    },
+
+    displayPercentages: function(percentages) {
+
+        var fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
+
+        nodeListForEach(fields, function(current, index) {
+            if (percentages[index] > 0) {
+                current.textContent = percentages[index] + "%";
+            } else {
+                current.textContent = "---";
+            }
+        });
+
+    },
+
+    displayMonth: function() {
+        var now, months, month, year;
+
+        now = new Date();
+
+        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        month = now.getMonth();
+        year = now.getFullYear();
+
+        document.querySelector(DOMstrings.dateLabel).textContent = months[month] + " " + year;
+
+    },
+
+    changedType: function() {
+
+        var fields = document.querySelectorAll(
+            DOMstrings.inputType + "," +
+            DOMstrings.inputDescription + "," +
+            DOMstrings.inputValue
+        );
+
+        nodeListForEach(fields, function(cur) {
+            cur.classList.toggle("red-focus");
+        });
+
+        document.querySelector(DOMstrings.inputBtn).classList.toggle("red");
+
+    },
+
+    getDOMstrings: function() {
+        return DOMstrings;
+    }
+};
+
+})();
+
+
+//GLOBAL APP CONTROLLER
+var controller = (function(budgetCtrl, UICtrl) {
+
+var setupEventListeners = function() {
+
+    var DOM = UICtrl.getDOMstrings();
+    document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem);
+
+    document.addEventListener("keypress", function(event) {
+        if(event.keyCode === 13 || event.which === 13) {
+            ctrlAddItem();
+        }
+    });
+
+    document.querySelector(DOM.container).addEventListener("click", ctrlDeleteItem);
+
+    document.querySelector(DOM.inputType).addEventListener("change", UICtrl.changedType);
+
+    document.querySelector(DOM.inputDescription).focus();
+
+}
+
+var updateBudget = function() {
+
+    // 1. Calculate the budget
+    budgetCtrl.calculateBudget();
+
+    // 2. Return the budget
+    var budget = budgetCtrl.getBudget();
+
+    // 3. Display the budget on the UI
+    UICtrl.displayBudget(budget);
+
+};
+
+var updatePercentages = function() {
+
+    // 1. Calculate percentages
+    budgetCtrl.calculatePercentages();
+
+    // 2. Read percentages form the budget controller
+    var percentages = budgetCtrl.getPercentages();
+
+    /// 3. Update the UI with the new percentages
+    UICtrl.displayPercentages(percentages);
+
+};
+
+
+var ctrlAddItem = function() {
+    var input, newItem;
+
+    // 1. Get input data
+    input = UICtrl.getInput();
+
+    if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+        // 2. Add the item to budget controller
+        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+
+        // 3. Add the item to the UI
+        UICtrl.addListItem(newItem, input.type);
+
+        // 4 Clear the fields
+        UICtrl.clearFields();
+
+        // 5. Calculate and update the budget
+        updateBudget();
+
+        // 6. Calculate and update the percentages
+        updatePercentages();
+    }
+
+}
+
+var ctrlDeleteItem = function(event) {
+    var itemID, splitID, type, ID;
+
+    itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+    if (itemID) {
+
+        splitID = itemID.split("-");
+        type = splitID[0];
+        ID = parseInt(splitID[1]);
+
+        // 1. Delete item from the data structure
+        budgetCtrl.deleteItem(type, ID);
+
+        // 2. Delete item from the UI
+        UICtrl.deleteListItem(itemID);
+
+        // 3. Update and show the new budget
+        updateBudget();
+
+        // 4. Calculate and update the percentages
+        updatePercentages();
+
+    }
+
+};
+
+return {
+    init: function() {
+
+        setupEventListeners();
+
+        UICtrl.displayBudget({
+            budget: 0,
+            totalInc: 0,
+            totalExp: 0,
+            percentage: -1
+        });
+        UICtrl.displayMonth();
+
+        console.log("app started!");
+
+    }
+}
+
+})(budgetController, UIController);
+
+controller.init();
+
+</script>
