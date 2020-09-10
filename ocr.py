@@ -1,7 +1,7 @@
 from google.cloud import vision
 
 def get_text(url):
-    client = vision.ImageAnnotatorClient()
+	client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
     image = vision.types.Image()
     image.source.image_uri = url
 
