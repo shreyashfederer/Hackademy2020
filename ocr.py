@@ -1,5 +1,6 @@
 from google.cloud import vision
 
+<<<<<<< HEAD
 def get_text_from_image(url):
 	client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
     image = vision.types.Image()
@@ -24,4 +25,5 @@ def get_text_from_image(url):
                 response.error.message))
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	get_text_from_image("gs://images-hackathon-288506/images/billing-invoice-with-payment-plan.png")
