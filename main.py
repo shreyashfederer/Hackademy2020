@@ -26,6 +26,8 @@ def ocr(url = "gs://images-hackathon-288506/images/billing-invoice-with-payment-
 		print("File saved successfully : {}".format(file_path))
 		texts = get_text_from_url(url)
 		############# Insert Function Call here to identify products & respective value ################
+
+		######## and then Mapping to categories ###############
 	return "File saved successfully"
 
 
