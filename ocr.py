@@ -7,21 +7,22 @@ def get_text_from_image(url):
 
     response = client.text_detection(image=image)
     texts = response.text_annotations
-    print('Texts:')
+    return texts
+    # print('Texts:')
 
-    for text in texts:
-        print('\n"{}"'.format(text.description))
+    # for text in texts:
+    #     print('\n"{}"'.format(text.description))
 
-        vertices = (['({},{})'.format(vertex.x, vertex.y)
-                    for vertex in text.bounding_poly.vertices])
+    #     vertices = (['({},{})'.format(vertex.x, vertex.y)
+    #                 for vertex in text.bounding_poly.vertices])
 
-        print('bounds: {}'.format(','.join(vertices)))
+    #     print('bounds: {}'.format(','.join(vertices)))
 
-    if response.error.message:
-        raise Exception(
-            '{}\nFor more info on error messages, check: '
-            'https://cloud.google.com/apis/design/errors'.format(
-                response.error.message))
+    # if response.error.message:
+    #     raise Exception(
+    #         '{}\nFor more info on error messages, check: '
+    #         'https://cloud.google.com/apis/design/errors'.format(
+    #             response.error.message))
 
 if __name__ == "__main__":
 	get_text_from_image("gs://images-hackathon-288506/images/billing-invoice-with-payment-plan.png")
