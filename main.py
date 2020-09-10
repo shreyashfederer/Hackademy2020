@@ -11,7 +11,10 @@ app.config['UPLOAD_FOLDER'] = "./uploads/"
 
 @app.route('/')
 def home():
+	########## Insert Visualizations according to the JSON ###################
+
 	return "Hello George!"
+
 
 
 @app.route('/ocr')

@@ -7,8 +7,7 @@ def get_text_from_url(url):
     image = vision.types.Image()
     image.source.image_uri = url
     response = client.text_detection(image=image)
-    texts = response.text_annotations
-    return texts
+    return response
     # print('Texts:')
 
     # for text in texts:
@@ -31,8 +30,7 @@ def get_text_from_file(file_path):
         content = image_file.read()
     image = types.Image(content=content)
     response = client.text_detection(image=image)
-    texts = response.text_annotations
-    return texts
+    return response
 
 if __name__ == "__main__":
 	get_text_from_image("gs://images-hackathon-288506/images/billing-invoice-with-payment-plan.png")
