@@ -4,6 +4,7 @@ with open('resources/datasony.json') as f:
 
 
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods","DELL"]
+result = {}
 
 def get_products(text):
   global Products
