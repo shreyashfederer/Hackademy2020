@@ -3,9 +3,10 @@ import os
 
 from flask import Flask, render_template, request, jsonify, redirect
 
-import ocr
-import parsingtesting
+from ocr import *
+from parsingtesting import *
 from budget import *
+from parsing import *
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ app.config['RESOURCE_FOLDER'] = "./resources/"
 def home():
 	########## Insert Visualizations according to the JSON ###################
 
-	return {"user" : "George W.", "spends" : budget.get_spends(), 'thresholds' : budget.get_budget()}
+	return {"user" : "George W.", "spends" : get_spends(), 'thresholds' : get_budget()}
 
 
 
@@ -28,11 +29,11 @@ def ocr(url = "gs://images-hackathon-288506/images/billing-invoice-with-payment-
 		file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
 		image.save(file_path)
 		print("File saved successfully : {}".format(file_path))
-		texts = ocr.get_text_from_url(url)
+		texts = get_text_from_url(url)
 		############# Insert Function Call here to identify products & respective value ################
-		parsed_output = parsingtesting.get_products()
+		parsed_output = get_products(texts)
 		######## and then Mapping to categories ###############
-
+		return CategorizeElement(parsed_output)
 	return "File saved successfully"
 
 
@@ -45,10 +46,10 @@ def offers():
 def budget():
 	if request.method == "POST":
 		new_data = request.get("data")
-		budget.update_spends(new_data)
+		update_spends(new_data)
 	############################## Insert Budget App call here #########################
 	else:
-		return budget.get_budget()
+		return get_budget()
 
 
 @app.route('/notifs')
