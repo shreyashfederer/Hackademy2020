@@ -56,7 +56,6 @@ export class BudgetComponent implements OnInit {
   save() {
     this.HomeService.addBudget("Pawan", this.rooms, this.total).subscribe((data) => {
       console.log(data)
-    })    
+    })
   }
-
 }
