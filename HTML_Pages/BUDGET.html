@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 
 	<ul class="nav">
@@ -294,4 +295,302 @@ $('#next1').click(function() {
 });
 
 </script>
+=======
+<html>
+
+	<ul class="nav">
+
+		<li class="navItem"><a href="#">Home</a></li>
+		<li class="navItem"><a href="#">Offers</a></li>
+		<li class="navItem"><a href="#">Notifications</a></li>
+		<li class="navItem"><a href="#">Expenses</a></li>
+		<li class="navItem"><a href="#">Upload Bills</a></li>
+		<li class="navItem"><a href="#">Graphs</a></li>
+	  </ul>
+
+	  <style>
+	  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+* {
+  margin:0px;
+  padding:0px;
+  font-family:'Open Sans', sans-serif;
+}
+body {
+	margin: 0;
+  background: url("{{ url_for('static', filename='i.jpg') }}");
+}
+.nav {
+  list-style-type:none;
+  display:flex;
+  flex-wrap: nowrap;
+  width:100%;
+  background:#222;
+}
+
+
+
+.hero h1 {
+  font-size: 45px;
+  font-weight: 100;
+  color: black;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.753);
+}
+
+.hero h3 {
+  font-size: 22px;
+  font-weight: 100;
+  color: black;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.753);
+}
+
+.hero__content {
+    padding: 100px 100px;
+    max-width: 310px;
+}
+
+.navItem, .navItem a {
+  display:inline-block;
+  flex-grow: 1;
+}
+.navItem a {
+  width:100%;
+  padding-top:30px;
+  padding-bottom:30px;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  text-shadow: 1px 1px 2px rgba(34,34,34,0.4);
+  font-weight:600;
+  font-size:18px;
+}
+.navItem:nth-of-type(1) {
+  border-bottom:2px solid #D60F3A;
+}
+.navItem:nth-of-type(1) a:hover {
+  background:#D60F3A;
+}
+.navItem:nth-of-type(2) {
+  border-bottom:2px solid #8317AD;
+}
+.navItem:nth-of-type(2) a:hover {
+  background:#8317AD;
+}
+.navItem:nth-of-type(3) {
+  border-bottom:2px solid #3116DE;
+}
+.navItem:nth-of-type(3) a:hover {
+  background:#3116DE;
+}
+.navItem:nth-of-type(4) {
+  border-bottom:2px solid #0E8FC2;
+}
+.navItem:nth-of-type(4) a:hover {
+  background:#0E8FC2;
+}
+.navItem:nth-of-type(5) {
+  border-bottom:2px solid #0EC23E;
+}
+.navItem:nth-of-type(5) a:hover {
+  background:#0EC23E;
+}
+.navItem:nth-of-type(6) {
+  border-bottom:2px solid #CFCF13;
+}
+.navItem:nth-of-type(6) a:hover {
+  background:#CFCF13;
+}
+</style>
+</html>
+
+<HTML>
+
+	<!-- Main title -->
+	<br>
+	<br>
+
+<h1>Budget Tracker</h1>
+<br>
+<br>
+<!-- Opening div, vanishes after first question to user -->
+<div class="opening">
+  <p>Hey there! To start tracking your budget, please answer the following.</p>
+  <br>
+  <h2>What is your monthly income?</h2>
+  <br>
+  <br>
+  <!-- Input box for user to input income -->
+  <input type="number" id="income"><br>
+  <!-- Next button makes this div vanish and shows the next one -->
+  <button type="submit" id="next1">Next!</button>
+</div>
+
+<!-- This div is hidden until the next button is pressed -->
+<div class="expenses">
+  <p>Please enter your budget for each category. If you don't have a budget for any of the category, simply leave it blank.<p>
+  
+<br>
+<br>
+ <!-- Parent div has flex properties -->
+<div class="flex">
+  <!-- Left side of screen -->
+ <div class="flex1">
+   <!-- Input boxes for each expense type -->
+  <h3>Housing:</h3>
+  <input type="number" id="expenseRent" class="exp"><br>
+  <h3>Transportation:</h3>
+  <input type="number" id="expenseTransport" class="exp"><br>
+  <h3>Food:</h3>
+  <input type="number" id="expenseFood" class="exp"><br>
+  <h3>Utilities:</h3>
+  <input type="number" id="expenseUtilities" class="exp"><br>
+  <h3>Healthcare:</h3>
+  <input type="number" id="expenseHealth" class="exp"><br>
+  <h3>Insurance:</h3>
+  <input type="number" id="expenseInsurance" class="exp"><br>
+  <h3>Education:</h3>
+  <input type="number" id="expenseEducation" class="exp"><br>
+ </div>
+    
+ <!-- Right side of screen -->
+ <div class="flex2">
+  <h3>Personal Care:</h3>
+  <input type="number" id="expensePC" class="exp"><br>
+  <h3>Groceries:</h3>
+  <input type="number" id="expenseGroceries" class="exp"><br>
+  <h3>Shopping:</h3>
+  <input type="number" id="expenseShopping" class="exp"><br>
+  <h3>Debts:</h3>
+  <input type="number" id="expenseDebts" class="exp"><br>
+  <h3>Loans:</h3>
+  <input type="number" id="expenseLoans" class="exp"><br>
+   <h3>Entertainment:</h3>
+  <input type="number" id="expenseEntertainment" class="exp"><br>
+  <h3>miscellaneous:</h3>
+  <input type="number" id="expenseOthers" class="exp"><br>
+ </div>
+</div><br>
+  <!-- Next button makes this div vanish and shows results -->  <button type="submit" id="next2">Submit</button>
+</div>
+
+
+ <!-- Jquery library script tag -->
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+
+<style>
+
+/* Page tags */
+
+body {
+  background-color: #4F6367;
+  font-family: Geneva;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+p {
+  font-size: 18px;
+}
+
+input {
+  width: 40%;
+  padding: 10px;
+  font-family: Geneva;
+  font-size: 16px;
+  border: 2px solid #EEF5DB;
+  border-radius: 10px;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid #7A9E9F;
+}
+
+button {
+  width: 40%;
+  margin: 5px;
+  font-family: Geneva;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #7A9E9F;
+  border: 2px solid #B8D8D8;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  border: 2px solid #4F6367;
+}
+
+/* Divs */
+.opening, .expenses, .end {
+  width: 60%;
+  margin: 0 auto;
+  background-color: rgb(173, 173, 173);
+  padding: 20px;
+  border: 3px solid #B8D8D8;
+  border-radius: 18px;
+}
+
+.expenses, .end {
+  display: none;
+}
+
+.exp {
+  width: 80%;
+}
+
+/* Flex container */
+.flex {
+  display: flex;
+  direction: row;
+  justify-content: space-around;
+}
+
+.flex1, .flex2 {
+  width: 40%;
+}
+
+</style>
+
+<script>
+
+// First button that shows on page //
+$('#next1').click(function() {
+  // Sets income as the value input by user //
+  let income = $('#income').val();
+  // Checks for empty field //
+  if (income === '') {
+    alert('Please enter a value.');
+  // Checks for negative numbers //
+  } else if (income <= 0){
+    alert('Please enter a value.');
+  } else {
+  // If positive integer is entered, hides opening div and shows next div //
+    $('.opening').hide();
+    $('.expenses').show();
+  }
+});
+
+</script>
+>>>>>>> e01b6b3dfdb5af0d9b2acf1e72dcc3342fbf7be4
 </HTML>

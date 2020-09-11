@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --> PIYUSH'S SUGGESTIONS:
 
 1. How is your solution compatible to the enterprise that's already existing in HSBC.
@@ -44,3 +45,51 @@ def EXPENSES():
 def UPLOAD():
         return render_template("UPLOAD.html")
 
+=======
+--> PIYUSH'S SUGGESTIONS:
+
+1. How is your solution compatible to the enterprise that's already existing in HSBC.
+2. Make an analytics microservice and presentation should be in that fashion.
+3. Scaling is secondary. Developing it as microservice is primary.
+4. Create a dummy banking system.
+5. Simple system design rest API integration with Analytics microservice. 
+
+--> FLOW OF SCREENS:
+
+MAIN --> SIGNUP --> HOME --> NAVIGATE ACCORDING TO WHAT IS SELECTED IN NAV BAR
+
+Upload Bills should take you to UPLOAD screen
+Expenses should take you to EXPENSES screen
+Create Budget should take you to BUDGET screen
+
+--> FLASK COMMANDS:
+
+set flask_app=test.py -> set flask_debug=1 -> flask run
+
+--> TEST.PY CODE:
+
+@app.route("/SIGNUP")
+def SIGNUP():
+        return render_template("SIGNUP.html")
+
+@app.route("/MAIN")
+def MAIN():
+        return render_template("MAIN.html")
+
+@app.route("/HOME")
+def HOME():
+        return render_template("HOME.html") 
+
+@app.route("/BUDGET")
+def BUDGET():
+        return render_template("BUDGET.html")
+
+@app.route("/EXPENSES")
+def EXPENSES():
+        return render_template("EXPENSES.html")
+
+@app.route("/UPLOAD")
+def UPLOAD():
+        return render_template("UPLOAD.html")
+
+>>>>>>> e01b6b3dfdb5af0d9b2acf1e72dcc3342fbf7be4
