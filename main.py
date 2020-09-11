@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 
 import ocr
 import parsingtesting
+import budget
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = "./uploads/"
 def home():
 	########## Insert Visualizations according to the JSON ###################
 
-	return "Hello George!"
+	return {"user" : "George W.", "spends" : budget.get_spends(), 'thresholds' : budget.get_budget()}
 
 
 
