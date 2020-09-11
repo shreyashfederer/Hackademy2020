@@ -1,14 +1,9 @@
-import json
-with open('resources/datasony.json') as f:
-  data = json.load(f)
-
-
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods","DELL"]
 result = {}
 
 def get_products(text):
   global Products
-  for (k, v) in data.items():
+  for (k, v) in text.items():
     
     
     if str(k)=="textAnnotations":
