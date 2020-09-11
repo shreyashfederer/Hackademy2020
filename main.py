@@ -47,7 +47,8 @@ def budget():
 		new_data = request.get("data")
 		budget.update_spends(new_data)
 	############################## Insert Budget App call here #########################
-	return "Budget app"
+	else:
+		return budget.get_budget()
 
 
 @app.route('/notifs')
