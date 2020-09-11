@@ -23,7 +23,7 @@ def home():
 
 
 @app.route('/ocr')
-def ocr(url = "gs://images-hackathon-288506/images/billing-invoice-with-payment-plan.png"):
+def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
 	image = request.files['file']
 	if image.filename != None:
 		file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
