@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body style="background-color: gray">
+    <h1>Your Current Month Expenditure</h1>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+  <style>
+  #commute {display:none;}
+  </style>
+  <script>
+  google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Category', 'Total Amount Spend'],
+    ['Electronics',     110000],
+    ['Food',      20000],
+    ['Electricity',  12000],
+    ['Travel', 20000],
+    ['Maintenance',    10000]
+  ]);
+
+  var options = {
+    title: 'My Daily Activities'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}
+
+  </script>
+</html>

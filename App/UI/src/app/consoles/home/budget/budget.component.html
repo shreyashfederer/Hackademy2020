@@ -1,0 +1,64 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Housing Budget</h1>
+            </div>
+        </div>
+  
+        <div class="container">
+            <h4>Total Budget: <input type="text" [(ngModel)]="total"  name='total' /></h4>
+            <hr />
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Room</th>
+                        <th>Budget</th>
+                        <th>Percentage of Budget</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of rooms;let indexOfelement=index;">
+                        <th scope="row">{{ room.room }}</th>
+                        <td class="price"><input class="form-control" type="text" [(ngModel)]="room.budget" /></td>
+                        <td>123</td>
+                        <td><button (click)="delete(indexOfelement)" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Remaining Budget</th>
+                        <td class="total">123</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Add Room</h3>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input type="text" #addRoom class="form-control" placeholder="Room title"/>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" #addBudget class="form-control" placeholder="Room budget"/>
+                </div>
+                <button (click)="add(addRoom.value, addBudget.value)" class="btn btn-success col-xs-3">Add Room</button>
+            </div>
+            <hr />
+            <h3>Email Yourself</h3>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" #emailAddress placeholder="Your Email"/>
+                </div>
+                <button (click)="email(emailAddress.value)" class="btn btn-primary col-xs-3">Send</button>
+            </div>
+        </div>
+    
+  <br />
+
+  </html>
