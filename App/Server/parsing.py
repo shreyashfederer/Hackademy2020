@@ -10,12 +10,62 @@ f = open('data.json')
 data = json.load(f)
 
 
+
+
 f.close()
+
+
+
 
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods"]
 
 result = {}
 
+categories = ["Electronics","Food","Apparel","Furniture","HomeItems"]
+
+ElectronicsItems = ['Samsung',"Mobile","Airpods"]
+Furniture = ["Table","Chair","Clock"]
+Food = ["Lays"]
+Apparel = ["Jeans","Shirt"]
+HomeItems = ["Sanitizer"]
+
+
+
+Spending = {
+
+
+"Electronics" : 0,
+"Furniture": 0,
+"Food": 0,
+"Clothing" : 0,
+"Healthcare" : 0,
+"HomeItems": 0,
+"Other": 0
+
+
+}
+
+def CategorizeElement(result):
+
+    for (product,price) in result.items():
+        if product in ElectronicsItems :
+            Spending['Electronics'] += int(price)
+        elif product in Furniture:
+            Spending['Furniture'] += int(price)
+        elif product in Food:
+            Spending['Food'] += int(price)
+        elif product in Apparel:
+            Spending['Food'] += int(price)
+        elif product in HomeItems:
+            Spending['HomeItems'] += int(price)        
+
+        else:
+            Spending['Other'] += int(price)
+
+
+
+
+    return Spending
 
 
 for (k, v) in data.items():
@@ -71,6 +121,13 @@ for (k, v) in data.items():
                         
                             
 print(result)
+spendingpattern = CategorizeElement(result)
+
+print(spendingpattern)
+
+
+
+
 
 
 
@@ -117,8 +174,7 @@ print(result)
                            
     #                    result['item'] = max(prices) 
                         
-                        
-                            
+                                        
     # print(result)
 
 
