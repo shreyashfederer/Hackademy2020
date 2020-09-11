@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //import { GoogleChartsModule } from 'angular-google-charts';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -33,7 +34,8 @@ import { UploadBillsComponent } from './consoles/home/upload-bills/upload-bills.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     //GoogleChartsModule
   ],
   providers: [],
