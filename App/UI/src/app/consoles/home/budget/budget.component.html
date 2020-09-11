@@ -6,18 +6,23 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Housing Budget</h1>
+                <h1>User Budget</h1>
             </div>
         </div>
   
         <div class="container">
-            <h4>Total Budget: <input type="text" [(ngModel)]="total"  name='total' /></h4>
-            <hr />
+            <div class="row">
+                <div class="col-xs-4">
+                    <h4>Total Budget: <input type="text" [(ngModel)]="total"  name='total' /></h4>
+                </div>
+                <button (click)="save()" class="btn btn-success col-xs-3">Save Budget</button>
+                <hr />
+            </div>
     
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Room</th>
+                        <th>Categories</th>
                         <th>Budget</th>
                         <th>Percentage of Budget</th>
                         <th>Remove</th>
@@ -27,27 +32,27 @@
                     <tr *ngFor="let room of rooms;let indexOfelement=index;">
                         <th scope="row">{{ room.room }}</th>
                         <td class="price"><input class="form-control" type="text" [(ngModel)]="room.budget" /></td>
-                        <td>123</td>
+                        <td>{{ ((room.budget/total)*100).toFixed(2) }}%</td>
                         <td><button (click)="delete(indexOfelement)" class="btn btn-danger">Delete</button></td>
                     </tr>
                     <tr>
                         <th scope="row">Remaining Budget</th>
-                        <td class="total">123</td>
+                        <td class="total">{{ test() }}</td>
                         <td></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         
-            <h3>Add Room</h3>
+            <h3>Add Category</h3>
             <div class="row">
                 <div class="col-xs-4">
-                    <input type="text" #addRoom class="form-control" placeholder="Room title"/>
+                    <input type="text" #addRoom class="form-control" placeholder="Category title"/>
                 </div>
                 <div class="col-xs-4">
-                    <input type="text" #addBudget class="form-control" placeholder="Room budget"/>
+                    <input type="text" #addBudget class="form-control" placeholder="Category budget"/>
                 </div>
-                <button (click)="add(addRoom.value, addBudget.value)" class="btn btn-success col-xs-3">Add Room</button>
+                <button (click)="add(addRoom.value, addBudget.value)" class="btn btn-success col-xs-3">Add Category</button>
             </div>
             <hr />
             <h3>Email Yourself</h3>

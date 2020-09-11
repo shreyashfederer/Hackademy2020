@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-budget',
@@ -7,15 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudgetComponent implements OnInit {
 
-  currency = 1
-  symbol
-  fractionSize
-  number = 1
-  total: number
-  emailAddress
+  public total: number
 
-  rooms = [
-    { room: 'Living Room', budget: 4550 },
+  public rooms = [
+/*    { room: 'Living Room', budget: 4550 },
     { room: 'Master Bedroom', budget: 2795 },
     { room: 'Office', budget: 1300 },
     { room: 'Guest Room', budget: 100 },
@@ -23,12 +19,13 @@ export class BudgetComponent implements OnInit {
     { room: 'Outdoors', budget: 1000 },
     { room: 'Laundry Room', budget: 1000 },
     { room: 'Misc', budget: 500 },
-    { room: 'kitchen', budget: 3000 }
+    { room: 'kitchen', budget: 3000 } */
   ];
 
-  constructor() { }
+  constructor(private HomeService: HomeService) { }
 
   ngOnInit(): void {
+    this.total = 0
   }
 
   test() {
@@ -54,6 +51,12 @@ export class BudgetComponent implements OnInit {
     }
     
     window.open('mailto:'+ emailAddress +'?subject=Finance&body='+data);
+  }
+
+  save() {
+    this.HomeService.addBudget("Pawan", this.rooms, this.total).subscribe((data) => {
+      console.log(data)
+    })    
   }
 
 }
