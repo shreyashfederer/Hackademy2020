@@ -3,6 +3,8 @@ result = {}
 
 def get_products(text):
   global Products
+  print(type(text))
+  print(text.keys())
   for (k, v) in text.items():
     
     
