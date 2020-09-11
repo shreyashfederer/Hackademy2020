@@ -13,11 +13,11 @@ data = json.load(f)
 f.close()
 
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods","DELL"]
-
+result = {}
 
 for (k, v) in data.items():
     
-    result = {}
+    
     if str(k)=="textAnnotations":
         for value in v:
             if type(value) == type(dict()):

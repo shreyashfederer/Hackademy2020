@@ -13,6 +13,7 @@ data = json.load(f)
 f.close()
 
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods"]
+
 result = {}
 
 
