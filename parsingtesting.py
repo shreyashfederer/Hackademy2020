@@ -6,11 +6,8 @@
     
 
 import json
-f = open('datasony.json')
-data = json.load(f)
-
-
-f.close()
+with open('resources/datasony.json') as f:
+  data = json.load(f)
 
 
 Products = ["Chair","Samsung","Lays","Sanitizer","Clock","Table","Sony","Airpods","DELL"]

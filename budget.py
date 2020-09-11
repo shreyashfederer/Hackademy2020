@@ -1,6 +1,6 @@
 import json
 
-with open ('user.json', 'rb') as f:
+with open ('resources/user.json', 'rb') as f:
 	data = json.load(f)
 
 def get_spends():

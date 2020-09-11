@@ -10,6 +10,7 @@ import budget
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = "./uploads/"
+app.config['RESOURCE_FOLDER'] = "./resources/"
 
 
 @app.route('/')
