@@ -2,7 +2,9 @@ import io
 import os
 
 from flask import Flask, render_template, request, jsonify, redirect
-from ocr import get_text_from_url, get_text_from_file
+
+import ocr
+import parsingtesting
 
 app = Flask(__name__)
 
@@ -24,10 +26,11 @@ def ocr(url = "gs://images-hackathon-288506/images/billing-invoice-with-payment-
 		file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
 		image.save(file_path)
 		print("File saved successfully : {}".format(file_path))
-		texts = get_text_from_url(url)
+		texts = ocr.get_text_from_url(url)
 		############# Insert Function Call here to identify products & respective value ################
-
+		parsed_output = parsingtesting.get_products()
 		######## and then Mapping to categories ###############
+
 	return "File saved successfully"
 
 

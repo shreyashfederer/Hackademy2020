@@ -31,6 +31,3 @@ def get_text_from_file(file_path):
     image = types.Image(content=content)
     response = client.text_detection(image=image)
     return response
-
-if __name__ == "__main__":
-	get_text_from_image("gs://images-hackathon-288506/images/billing-invoice-with-payment-plan.png")
