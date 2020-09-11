@@ -1,0 +1,19 @@
+{
+	"name" : "George W.",
+	"budget": {
+		"spent" : {
+			"grocery" : "3400",
+			"electronics" : "9300",
+			"apparels" : "2500",
+			"furniture" : "0",
+			"travelling" : "2000"
+		},
+		"threshold":{
+			"grocery" : "10000",
+			"electronics" : "50000",
+			"apparels" : "12000",
+			"furniture" : "10000",
+			"travelling" : "5000"
+		}
+	}
+}
