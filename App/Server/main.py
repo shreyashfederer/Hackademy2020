@@ -24,13 +24,19 @@ def home():
 
 @app.route('/ocr')
 def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
-	image = request.files['file']
-	if image.filename != None:
-		file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
-		image.save(file_path)
-		print("File saved successfully : {}".format(file_path))
+	if request.method == "POST":
+		image = request.files['file']
+		if image.filename != None:
+			file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
+			image.save(file_path)
+			print("File saved successfully : {}".format(file_path))
+			texts = get_text_from_file(file.filename)
+			############# Insert Function Call here to identify products & respective value ################
+			parsed_output = get_products(texts)
+			######## and then Mapping to categories ###############
+			return CategorizeElement(parsed_output)
+	else:
 		texts = get_text_from_url(url)
-		############# Insert Function Call here to identify products & respective value ################
 		parsed_output = get_products(texts)
 		######## and then Mapping to categories ###############
 		return CategorizeElement(parsed_output)
