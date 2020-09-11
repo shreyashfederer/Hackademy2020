@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 
 import ocr
 import parsingtesting
-import budget
+from budget import *
 
 app = Flask(__name__)
 
