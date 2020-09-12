@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   isBudget: boolean;
   isExpense: boolean;
   isBills: boolean;
+  isVisual: boolean;
   
 
   constructor(private EventService: EventTriggerService) { }
@@ -27,22 +28,25 @@ export class HomeComponent implements OnInit {
       console.log(data['button'])
       if(data['button'] == 'HOME') {
         this.isHome = false;
-        this.isBills = this.isBudget = this.isExpense = this.isNotifications = this.isOffer = true;
+        this.isBills = this.isBudget = this.isExpense = this.isNotifications = this.isOffer = this.isVisual = true;
       } else if(data['button'] == 'OFFER') {
         this.isOffer = false;
-        this.isBills = this.isBudget = this.isExpense = this.isNotifications = this.isHome = true;
+        this.isBills = this.isBudget = this.isExpense = this.isNotifications = this.isHome = this.isVisual = true;
       } else if(data['button'] == 'NOTIFICATION') {
         this.isNotifications = false;
-        this.isBills = this.isBudget = this.isExpense = this.isHome = this.isOffer = true;
+        this.isBills = this.isBudget = this.isExpense = this.isHome = this.isOffer = this.isVisual = true;
       } else if(data['button'] == 'BUDGET') {
         this.isBudget = false;
-        this.isBills = this.isHome = this.isExpense = this.isNotifications = this.isOffer = true;
+        this.isBills = this.isHome = this.isExpense = this.isNotifications = this.isOffer = this.isVisual = true;
       } else if(data['button'] == 'EXPENSE') {
         this.isExpense = false;
-        this.isBills = this.isBudget = this.isHome = this.isNotifications = this.isOffer = true;
+        this.isBills = this.isBudget = this.isHome = this.isNotifications = this.isOffer = this.isVisual = true;
       } else if(data['button'] == 'BILL') {
         this.isBills = false;
-        this.isHome = this.isBudget = this.isExpense = this.isNotifications = this.isOffer = true;
+        this.isHome = this.isBudget = this.isExpense = this.isNotifications = this.isOffer = this.isVisual = true;
+      } else if(data['button'] == 'VISUAL') {
+        this.isVisual = false;
+        this.isHome = this.isBudget = this.isExpense = this.isNotifications = this.isOffer = this.isBills = true;
       }
     })
   }

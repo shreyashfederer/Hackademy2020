@@ -6,6 +6,7 @@ import { HomeService } from 'src/app/services/home.service';
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.css']
 })
+
 export class BudgetComponent implements OnInit {
 
   public total: number
@@ -49,14 +50,12 @@ export class BudgetComponent implements OnInit {
     for(var index in this.rooms){
        data += this.rooms[index].room +': $'+this.rooms[index].budget + '.\r\n  '; 
     }
-    
     window.open('mailto:'+ emailAddress +'?subject=Finance&body='+data);
   }
 
   save() {
     this.HomeService.addBudget("Pawan", this.rooms, this.total).subscribe((data) => {
       console.log(data)
-    }
-	)
+    })
   }
 }

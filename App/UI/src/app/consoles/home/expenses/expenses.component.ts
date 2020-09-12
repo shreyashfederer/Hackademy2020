@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-expenses',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesComponent implements OnInit {
 
-  constructor() { }
+  public rooms = [
+        { room: 'electronics', budget: 0 },
+        { room: 'grocery', budget: 0 },
+        { room: 'apparels', budget: 0 },
+        { room: 'travelling', budget: 0 },
+        { room: 'furniture', budget: 0 }
+      /*  { room: 'Outdoors', budget: 0 },
+        { room: 'Laundry Room', budget: 1000 },
+        { room: 'Misc', budget: 500 },
+        { room: 'kitchen', budget: 3000 } */
+      ];
+
+  constructor(private HomeService: HomeService) { }
 
   ngOnInit(): void {
+  }
+
+
+  delete(index) {
+    this.rooms.splice(index, 1);
+  }
+
+  add(addRoom: string, addBudget: number) {
+    this.rooms.push({room: addRoom, budget: addBudget});
+  }
+
+  save() {
+    this.HomeService.addExpenses("Pawan", this.rooms).subscribe((data) => {
+      console.log(data)
+    })
   }
 
 }

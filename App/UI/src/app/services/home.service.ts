@@ -23,4 +23,11 @@ export class HomeService {
     formData.append('fileKey', files, files.name);
     return this.WebService.post('ocr', formData)
   }
+
+  addExpenses(user: string, spent: any) {
+    return this.WebService.post('expenses', {
+      "user": user,
+      "spent": spent
+    })
+  }
 }
