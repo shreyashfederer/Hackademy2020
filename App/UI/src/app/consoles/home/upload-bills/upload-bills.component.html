@@ -32,20 +32,12 @@
         </tr>
     </thead>
     <tbody>
-      <li *ngFor="let data of billData">
-        <tr>
+        <tr *ngFor="let data of billData">
             <td>{{data.sno}}</td>
             <td>{{data.category}}</td>
             <td>{{data.amount}}</td>
         </tr>
       </tbody>
-      <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-        </tr>
-    </tfoot>
 </table>
 
 
