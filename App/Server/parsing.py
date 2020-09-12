@@ -28,6 +28,8 @@ Spending = {
 
 }
 
+ResultSpending = {}
+
 def CategorizeElement(result):
 
     for (product,price) in result.items():
@@ -44,5 +46,10 @@ def CategorizeElement(result):
 
         else:
             Spending['Other'] += int(price)
+    for (product,price) in Spending.items():
     
-    return Spending
+        if price>0:
+            ResultSpending[product] = price
+         
+    
+    return ResultSpending
