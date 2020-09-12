@@ -52,11 +52,14 @@ def offers():
 
 @app.route('/budget')
 def budget():
+	print("Inside budget")
 	if request.method == "POST":
 		new_data = request.get("data")
 		update_spends(new_data)
+		print("Data updated")
 	############################## Insert Budget App call here #########################
 	else:
+		print("In else")
 		return get_budget()
 
 
