@@ -40,8 +40,8 @@ def get_products(text):
                            prices.append(int(splitbydecimal[0].replace(",", "")))
 
                    else:
-                       if(cmppoints['description']!=item):
-                           item+= "_"+cmppoints['description']
+                       if(cmppoints.description != item):
+                           item+= "_"+cmppoints.description
 
                            
                            
