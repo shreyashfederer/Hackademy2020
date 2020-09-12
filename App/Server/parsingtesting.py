@@ -21,19 +21,19 @@ def get_products(text):
            print(y1,y2)
            print("\n")
            for cmppoints in text:
-               if(cmppoints.bounding_poly.vertices[0]['y'] in range(y1-20,y1+20) and cmppoints.bounding_poly['vertices'][2]['y'] in range(y2-20,y2+20)):
+               if(cmppoints.bounding_poly.vertices[0].y in range(y1-20,y1+20) and cmppoints.bounding_poly.vertices[2].y in range(y2-20,y2+20)):
                 #    print("Inside block: ")
                 #    print(cmppoints['description'],ord(cmppoints['description'][0]))
 
                    print("\n")
                 #    print(type(cmppoints['description']))
-                   if(ord(cmppoints['description'][0]) in range(46,58)):
+                   if(ord(cmppoints.description[0]) in range(46,58)):
 
 
-                       print("price: "+cmppoints['description'])
+                       print("price: "+cmppoints.description)
 
-                       if(cmppoints['description'].find('.') == -1):
-                           prices.append(int(cmppoints['description']))
+                       if(cmppoints.description.find('.') == -1):
+                           prices.append(int(cmppoints.description))
                        else:
                            splitbydecimal = cmppoints['description'].split(".")
                            prices.append(int(splitbydecimal[0].replace(",", "")))
