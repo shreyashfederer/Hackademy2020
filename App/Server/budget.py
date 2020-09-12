@@ -19,8 +19,9 @@ def update_spends(new_data):
 	}
 	"""
 	
-	for key in new_data["spent"].keys():
-		data['budget']['spent'][key] = int(data['budget']['spent'][key]) + int(new_data["spent"][key])
+	for key in new_data["spent"]:
+		my_key = key['room']
+		data['budget']['spent'][my_key] = int(data['budget']['spent'][my_key]) + key['budget'])
 
 	
 	print("Data Updated")
