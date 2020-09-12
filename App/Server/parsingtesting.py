@@ -3,7 +3,7 @@ result = {}
 
 def get_products(text):
   global Products
-  print(text)
+  print(len(text))
   for value in text:
        if(str(value.description) in Products):
 
@@ -21,6 +21,7 @@ def get_products(text):
            print(type(y1))
            print(y1,y2)
            print("\n")
+           print(len(text))
            for cmppoints in text:
                print("TEST :({},{}) ".format(cmppoints.bounding_poly.vertices[0].y,cmppoints.bounding_poly.vertices[2].y))
                print(cmppoints)
