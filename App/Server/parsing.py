@@ -37,7 +37,7 @@ def CategorizeElement(result):
             Spending['Furniture'] += int(price)
         elif product in Food:
             Spending['Food'] += int(price)
-        elif product in Apparel:
+        elif product in Apparels:
             Spending['Food'] += int(price)
         elif product in HomeItems:
             Spending['HomeItems'] += int(price)        
