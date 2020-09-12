@@ -22,9 +22,8 @@ def get_products(text):
            print(y1,y2)
            print("\n")
            for cmppoints in text:
-               if cmppoints.description == "80,000.00":
-                   print("TEST :({},{}) ".format(cmppoints.bounding_poly.vertices[0].y,cmppoints.bounding_poly.vertices[2].y))
-                   print(cmppoints)
+               print("TEST :({},{}) ".format(cmppoints.bounding_poly.vertices[0].y,cmppoints.bounding_poly.vertices[2].y))
+               print(cmppoints)
                if(int(cmppoints.bounding_poly.vertices[0].y) in range(y1-20,y1+20) and cmppoints.bounding_poly.vertices[2].y in range(y2-20,y2+20)):
                    print("Inside block: ")
                 #    print(cmppoints['description'],ord(cmppoints['description'][0]))
