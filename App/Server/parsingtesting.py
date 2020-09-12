@@ -49,9 +49,9 @@ def get_products(text):
                            
                            
                            
-               print(prices)    
-               print("\n")
-               result[item] = max(prices) 
+           print(prices)    
+           print("\n")
+           result[item] = max(prices) 
                   
                             
   print("Output from get_products %s " % (result))                            
