@@ -24,7 +24,7 @@ def home():
 
 
 
-@app.route('/ocr')
+@app.route('/ocr',methods=['GET', 'POST'])
 def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
 	if request.method == "POST":
 		image = request.files['file']
@@ -50,7 +50,7 @@ def offers():
 	return "George, based on your purchases\n We would like to offer you a 9% discount on your next Apparel Shopping!!\n Use BBJJKKK2020 for your purchase!"
 
 
-@app.route('/budget')
+@app.route('/budget' ,methods=['GET', 'POST'])
 def budget():
 	print("Inside budget")
 	if request.method == "POST":
@@ -63,7 +63,7 @@ def budget():
 		return get_budget()
 
 
-@app.route('/notifs')
+@app.route('/notifs',methods=['GET'])
 def get_notifs():
 	return {'data':["You have exceeded your Apparel Budget for September exceeded by 15%","Grocery spends reached 50%", "Electronics spends reached 90%"]}
 
