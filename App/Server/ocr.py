@@ -7,9 +7,8 @@ def get_text_from_url(url):
     image = vision.types.Image()
     image.source.image_uri = url
     response = client.text_detection(image=image)
-    json_object = json.dump(response) 
     with open('sample.json','w') as f:
-        f.write(json_object)
+        json.dump(response,f)
     texts = response.text_annotations
     with open('texts.txt','w') as f:
         f.write(texts)
