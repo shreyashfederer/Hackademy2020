@@ -13,7 +13,7 @@ def get_products(text):
            prices = []
 
            #print(type(value['boundingPoly']))
-           for vertices in value.boundingPoly.vertices:
+           for vertices in value.bounding_poly.vertices:
 
 
 
@@ -25,8 +25,8 @@ def get_products(text):
                y2 = vertices[2].y
                print(y1 + "" + y2 + "################################################")
                print("\n")
-               for cmppoints in v:
-                   if(cmppoints['boundingPoly']['vertices'][0]['y'] in range(y1-20,y1+20) and cmppoints['boundingPoly']['vertices'][2]['y'] in range(y2-20,y2+20)):
+               for cmppoints in value:
+                   if(cmppoints.bounding_poly.vertices[0]['y'] in range(y1-20,y1+20) and cmppoints.bounding_poly['vertices'][2]['y'] in range(y2-20,y2+20)):
                     #    print("Inside block: ")
                     #    print(cmppoints['description'],ord(cmppoints['description'][0]))
 
