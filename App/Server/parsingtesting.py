@@ -4,13 +4,13 @@ result = {}
 def get_products(text):
   global Products
 
-  for value in text.items():
+  for value in text:
        print(value)
-       if(value['description'] in Products):
+       if(str(value.description) in Products):
 
         #    print(value['boundingPoly'])
         #    print("\n")
-           item = value['description']
+           item = value.description
            prices = []
 
            #print(type(value['boundingPoly']))
