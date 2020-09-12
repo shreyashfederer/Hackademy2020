@@ -16,6 +16,7 @@ import { OffersComponent } from './consoles/home/offers/offers.component';
 import { NotificationsComponent } from './consoles/home/notifications/notifications.component';
 import { BudgetComponent } from './consoles/home/budget/budget.component';
 import { UploadBillsComponent } from './consoles/home/upload-bills/upload-bills.component';
+import { VisualComponent } from './consoles/home/visual/visual.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UploadBillsComponent } from './consoles/home/upload-bills/upload-bills.
     OffersComponent,
     NotificationsComponent,
     BudgetComponent,
-    UploadBillsComponent
+    UploadBillsComponent,
+    VisualComponent
   ],
   imports: [
     BrowserModule,

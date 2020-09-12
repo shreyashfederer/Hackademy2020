@@ -42,4 +42,9 @@ export class NavBarComponent implements OnInit {
     console.log("Bills Enters")
     this.EventService.setFeature("BILL");
   }
+
+  OnVisual() {
+    console.log("Visual Enters")
+    this.EventService.setFeature("VISUAL");
+  }
 }

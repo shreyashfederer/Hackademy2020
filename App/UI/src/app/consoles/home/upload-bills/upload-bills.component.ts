@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-upload-bills',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadBillsComponent implements OnInit {
 
-  constructor() { }
+  chooseFile;
+
+  constructor(private HomeService: HomeService) { }
 
   ngOnInit(): void {
   }
 
   OnSubmit() {
-    
+    this.HomeService.uploadFile(this.chooseFile).subscribe((data) => {
+      console.log(data);
+    })
   }
 
 }
