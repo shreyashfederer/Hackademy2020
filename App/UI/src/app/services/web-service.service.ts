@@ -18,7 +18,7 @@ export class WebService {
 
   post(url: string, payload: Object) {
 	console.log(url)
-    return this.http.get(`${this.ROOT_URL}/${url}`, payload);
+    return this.http.post(`${this.ROOT_URL}/${url}`, payload);
   }
 
   /*postFile(url: string, payload: Object) {
