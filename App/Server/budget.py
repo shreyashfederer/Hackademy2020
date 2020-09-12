@@ -18,7 +18,9 @@ def update_spends(new_data):
 		"total" : 9000
 	}
 	"""
-	print(new_data)
+	print(type(new_data))
+	new_data = json.loads(new_data)
+	print(type(new_data))
 	for key in new_data["spent"]:
 		my_key = key['room']
 		print(type(key))
