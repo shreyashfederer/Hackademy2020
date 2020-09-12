@@ -36,7 +36,7 @@ def get_products(text):
                        if(cmppoints.description.find('.') == -1):
                            prices.append(int(cmppoints.description))
                        else:
-                           splitbydecimal = cmppoints['description'].split(".")
+                           splitbydecimal = cmppoints.description.split(".")
                            prices.append(int(splitbydecimal[0].replace(",", "")))
 
                    else:
