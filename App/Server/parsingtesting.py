@@ -5,7 +5,7 @@ def get_products(text):
   global Products
 
   for value in text.items():
-    print(value)
+       print(value)
        if(value['description'] in Products):
 
         #    print(value['boundingPoly'])
