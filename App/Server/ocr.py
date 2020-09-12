@@ -1,13 +1,13 @@
 from google.cloud import vision
 from google.cloud.vision import types
-
+import json
 
 def get_text_from_url(url):
     client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
     image = vision.types.Image()
     image.source.image_uri = url
     response = client.text_detection(image=image)
-    json_object = json.dumps(response) 
+    json_object = json.dump(response) 
     with open('sample.json','w') as f:
         f.write(json_object)
     texts = response.text_annotations
