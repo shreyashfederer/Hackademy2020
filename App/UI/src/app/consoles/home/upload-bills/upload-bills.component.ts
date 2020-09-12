@@ -8,7 +8,7 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class UploadBillsComponent implements OnInit {
 
-  chooseFile;
+  fileToUpload: File = null;
 
   constructor(private HomeService: HomeService) { }
 
@@ -16,9 +16,13 @@ export class UploadBillsComponent implements OnInit {
   }
 
   OnSubmit() {
-    this.HomeService.uploadFile(this.chooseFile).subscribe((data) => {
+    this.HomeService.uploadFile(this.fileToUpload).subscribe((data) => {
       console.log(data);
     })
+  }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);  
   }
 
 }

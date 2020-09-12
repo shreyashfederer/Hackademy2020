@@ -20,7 +20,7 @@ export class HomeService {
 
   uploadFile(files) {
     const formData: FormData = new FormData();
-    formData.append('file', files[0], files[0].name);
+    formData.append('fileKey', files, files.name);
     return this.WebService.post('ocr', formData)
   }
 }
