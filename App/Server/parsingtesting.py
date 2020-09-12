@@ -21,7 +21,7 @@ def get_products(text):
             #    print(points)
             #    print(points[0]['y'])
             #    print(points[2]['y'])
-              temp_list = list(vertices)
+               temp_list = list(vertices)
                y1 = temp_list[0].y
                y2 = temp_list[2].y
                print(y1 + "" + y2 + "################################################")
