@@ -5,7 +5,6 @@ def get_products(text):
   global Products
 
   for value in text:
-       print(value)
        if(str(value.description) in Products):
 
         #    print(value['boundingPoly'])
@@ -14,7 +13,7 @@ def get_products(text):
            prices = []
 
            #print(type(value['boundingPoly']))
-           for (newkey,points) in value['boundingPoly'].items():
+           for vertices in value.boundingPoly.vertices:
 
 
 
@@ -22,9 +21,9 @@ def get_products(text):
             #    print(points)
             #    print(points[0]['y'])
             #    print(points[2]['y'])
-               y1 = points[0]['y']
-               y2 = points[2]['y']
-               
+               y1 = vertices[0].y
+               y2 = vertices[2].y
+               print(y1 + "" + y2 + "################################################")
                print("\n")
                for cmppoints in v:
                    if(cmppoints['boundingPoly']['vertices'][0]['y'] in range(y1-20,y1+20) and cmppoints['boundingPoly']['vertices'][2]['y'] in range(y2-20,y2+20)):
