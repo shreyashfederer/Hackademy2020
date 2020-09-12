@@ -9,7 +9,7 @@ export class WebService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) { 
-    this.ROOT_URL = "http://35.230.145.24:8000";
+    this.ROOT_URL = "http://localhost:8000";
   }
 
   get(url: string) {
@@ -17,6 +17,7 @@ export class WebService {
   }
 
   post(url: string, payload: Object) {
+	console.log(url)
     return this.http.get(`${this.ROOT_URL}/${url}`, payload);
   }
 
