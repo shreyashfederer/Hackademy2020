@@ -18,7 +18,7 @@ def get_products(text):
             #    print(points[2]['y'])
            y1 = value.bounding_poly.vertices[0].y
            y2 = value.bounding_poly.vertices[2].y
-           print(y1 + "" + y2 + "################################################")
+           print(y1,y2)
            print("\n")
            for cmppoints in value:
                if(cmppoints.bounding_poly.vertices[0]['y'] in range(y1-20,y1+20) and cmppoints.bounding_poly['vertices'][2]['y'] in range(y2-20,y2+20)):
