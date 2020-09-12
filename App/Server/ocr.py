@@ -32,11 +32,7 @@ def get_text_from_file(file_path):
         content = image_file.read()
     image = types.Image(content=content)
     response = client.text_detection(image=image)
-    with open('sample.json','w') as f:
-        f.write(response)
     texts = response.text_annotations
-    with open('texts.txt','w') as f:
-        f.write(texts)
     return texts
 
 if __name__ == "__main__":
