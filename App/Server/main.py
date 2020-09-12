@@ -54,7 +54,8 @@ def offers():
 def budget():
 	print("Inside budget")
 	if request.method == "POST":
-		new_data = request.get("data")
+		print(request)
+		#new_data = request.get("data")
 		update_spends(new_data)
 		print("Data updated")
 	############################## Insert Budget App call here #########################
