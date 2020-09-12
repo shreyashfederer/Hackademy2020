@@ -14,12 +14,18 @@ def update_spends(new_data):
 	"""
 	new_data = {
 		"name" : "user",
-		"spent" : {"electronics":"80000","apparels":"1200","furniture":"7000"}
+		"spent" : {"electronics":"80000","apparels":"1200","furniture":"7000"},
+		"total" : 9000
 	}
 	"""
-	
-	for key in new_data["spent"].keys():
-		data['budget']['spent'][key] = int(data['budget']['spent'][key]) + int(new_data["spent"][key])
+	print(type(new_data))
+	new_data = json.loads(new_data)
+	print(type(new_data))
+	for key in new_data["spent"]:
+		my_key = key['room']
+		print(type(key))
+		data['budget']['spent'][my_key] = str(int(data['budget']['spent'][my_key]) + int(key['budget']))
 
-	with open('resources/user.json', 'w') as f:
-		f.write(data)
+	
+	print("Data Updated")
+	print(data)

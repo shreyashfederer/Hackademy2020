@@ -2,6 +2,7 @@ import io
 import os
 
 from flask import Flask, render_template, request, jsonify, redirect
+from flask_cors import CORS
 
 from ocr import *
 from parsingtesting import *
@@ -9,6 +10,7 @@ from budget import *
 from parsing import *
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['UPLOAD_FOLDER'] = "./uploads/"
 app.config['RESOURCE_FOLDER'] = "./resources/"
@@ -22,7 +24,7 @@ def home():
 
 
 
-@app.route('/ocr')
+@app.route('/ocr',methods=['GET', 'POST'])
 def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
 	if request.method == "POST":
 		image = request.files['file']
@@ -48,20 +50,25 @@ def offers():
 	return "George, based on your purchases\n We would like to offer you a 9% discount on your next Apparel Shopping!!\n Use BBJJKKK2020 for your purchase!"
 
 
-@app.route('/budget')
+@app.route('/budget' ,methods=['GET', 'POST'])
 def budget():
+	print("Inside budget")
 	if request.method == "POST":
-		new_data = request.get("data")
+		new_data = request.data
+		print(new_data)
 		update_spends(new_data)
+		print("Data updated")
+		return {"status_code":201}
 	############################## Insert Budget App call here #########################
 	else:
+		print("In else")
 		return get_budget()
 
 
-@app.route('/notifs')
+@app.route('/notifs',methods=['GET'])
 def get_notifs():
 	return {'data':["You have exceeded your Apparel Budget for September exceeded by 15%","Grocery spends reached 50%", "Electronics spends reached 90%"]}
 
 
 if __name__ == "__main__":
-	app.run(port=int(8000))
+	app.run(host="0.0.0.0",port=int(8000))
