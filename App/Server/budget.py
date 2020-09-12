@@ -14,7 +14,8 @@ def update_spends(new_data):
 	"""
 	new_data = {
 		"name" : "user",
-		"spent" : {"electronics":"80000","apparels":"1200","furniture":"7000"}
+		"spent" : {"electronics":"80000","apparels":"1200","furniture":"7000"},
+		"total" : 9000
 	}
 	"""
 	
@@ -23,3 +24,6 @@ def update_spends(new_data):
 
 	with open('resources/user.json', 'w') as f:
 		f.write(data)
+	
+	print("Data Updated")
+	print(data)
