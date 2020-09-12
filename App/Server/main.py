@@ -52,11 +52,10 @@ def offers():
 
 @app.route('/budget' ,methods=['GET', 'POST'])
 def budget():
-	print("Inside budget")
 	if request.method == "POST":
 		new_data = request.data
 		print(new_data)
-		update_spends(new_data)
+		update_budget(new_data)
 		print("Data updated")
 		return {"status_code":201}
 	############################## Insert Budget App call here #########################
@@ -64,6 +63,14 @@ def budget():
 		print("In else")
 		return get_budget()
 
+@app.route('/expenses',methods=['POST'])
+def expenses():
+	if request.method == "POST":
+		new_data = request.data
+		print(new_data)
+		update_spends(new_data)
+		print("Data updated")
+		return {"status_code":201}
 
 @app.route('/notifs',methods=['GET'])
 def get_notifs():

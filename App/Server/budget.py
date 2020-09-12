@@ -18,13 +18,22 @@ def update_spends(new_data):
 		"total" : 9000
 	}
 	"""
-	print(type(new_data))
 	new_data = json.loads(new_data)
-	print(type(new_data))
 	for key in new_data["spent"]:
 		my_key = key['room']
 		print(type(key))
 		data['budget']['spent'][my_key] = str(int(data['budget']['spent'][my_key]) + int(key['budget']))
+
+	
+	print("Data Updated")
+	print(data)
+
+def update_budget(new_data):
+	new_data = json.loads(new_data)
+	for key in new_data["spent"]:
+		my_key = key['room']
+		print(type(key))
+		data['budget']['threshold'][my_key] = int(key['budget'])
 
 	
 	print("Data Updated")
