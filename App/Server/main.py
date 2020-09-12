@@ -58,6 +58,7 @@ def budget():
 		print(new_data)
 		update_spends(new_data)
 		print("Data updated")
+		return {"status_code":201}
 	############################## Insert Budget App call here #########################
 	else:
 		print("In else")
