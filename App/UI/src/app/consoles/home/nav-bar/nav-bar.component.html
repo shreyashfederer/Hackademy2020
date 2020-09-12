@@ -1,105 +1,171 @@
-<ul class="nav">
+<html>
 
-    <li class="navItem" (click)="OnHome()"><a href="javascript:void(0)">Home</a></li>
-    <li class="navItem" (click)="OnOffers()"><a href="javascript:void(0)">Offers</a></li>
-    <li class="navItem" (click)="OnNotifications()"><a href="javascript:void(0)">Notifications</a></li>
-    <li class="navItem" (click)="OnBudget()"><a href="javascript:void(0)">Budget</a></li>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+	<ul class="nav">
+
+		<li class="navItem" (click)="OnHome()"><a href="javascript:void(0)">Home</a></li>
+		<li class="navItem" (click)="OnOffers()"><a href="javascript:void(0)">Offers</a></li>
     <li class="navItem" (click)="OnExpenses()"><a href="javascript:void(0)">Expenses</a></li>
-    <li class="navItem" (click)="OnBills()"><a href="javascript:void(0)">Upload Bills</a></li>
-  </ul>
-
-  <style>
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+    <li class="navItem" (click)="OnBudget()"><a href="javascript:void(0)">Budgets</a></li>
+		<li class="navItem" (click)="OnBills()"><a href="javascript:void(0)">Upload Bills</a></li>
+    <li class="navItem"><a class="button" href="#popup1" ><span class="glyphicon glyphicon-bell"></span></a></li>
+    <li class="navItem"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+    </ul>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+          <h2>Budget Alert!!!!!</h2>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            Electronics and travel budget exceeding for this month!!!
+          </div>
+        </div>
+      </div>
+  
+    
+	  <style>
+	  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 * {
-margin:0px;
-padding:0px;
-font-family:'Open Sans', sans-serif;
+  margin:0px;
+  padding:0px;
+  font-family:'Open Sans', sans-serif;
 }
 body {
-  margin: 0;
-background: url("{{ url_for('static', filename='i.jpg') }}");
+	margin: 0;
+  background: url("{{ url_for('static', filename='i.jpg') }}");
 }
 .nav {
-list-style-type:none;
-display:flex;
-flex-wrap: nowrap;
-width:100%;
-background:#222;
+  list-style-type:none;
+  display:flex;
+  flex-wrap: nowrap;
+  width:100%;
+  background:#222;
 }
 
 
 
 .hero h1 {
-font-size: 45px;
-font-weight: 100;
-color: black;
-margin: 0;
-background-color: rgba(255, 255, 255, 0.753);
+  font-size: 45px;
+  font-weight: 100;
+  color: black;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.753);
 }
 
 .hero h3 {
-font-size: 22px;
-font-weight: 100;
-color: black;
-margin: 0;
-background-color: rgba(255, 255, 255, 0.753);
+  font-size: 22px;
+  font-weight: 100;
+  color: black;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.753);
 }
 
 .hero__content {
-  padding: 100px 100px;
-  max-width: 310px;
+    padding: 100px 100px;
+    max-width: 310px;
 }
 
 .navItem, .navItem a {
-display:inline-block;
-flex-grow: 1;
+  display:inline-block;
+  flex-grow: 1;
 }
 .navItem a {
-width:100%;
-padding-top:30px;
-padding-bottom:30px;
-color:white;
-text-decoration:none;
-text-align:center;
-text-shadow: 1px 1px 2px rgba(34,34,34,0.4);
-font-weight:600;
-font-size:18px;
+  width:100%;
+  padding-top:30px;
+  padding-bottom:30px;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  text-shadow: 1px 1px 2px rgba(34,34,34,0.4);
+  font-weight:600;
+  font-size:18px;
 }
 .navItem:nth-of-type(1) {
-border-bottom:2px solid #D60F3A;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(1) a:hover {
-background:#D60F3A;
+  background:grey;
 }
 .navItem:nth-of-type(2) {
-border-bottom:2px solid #8317AD;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(2) a:hover {
-background:#8317AD;
+  background:grey;
 }
 .navItem:nth-of-type(3) {
-border-bottom:2px solid #3116DE;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(3) a:hover {
-background:#3116DE;
+  background:grey;
 }
 .navItem:nth-of-type(4) {
-border-bottom:2px solid #0E8FC2;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(4) a:hover {
-background:#0E8FC2;
+  background:grey;
 }
 .navItem:nth-of-type(5) {
-border-bottom:2px solid #0EC23E;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(5) a:hover {
-background:#0EC23E;
+  background:grey;
 }
 .navItem:nth-of-type(6) {
-border-bottom:2px solid #CFCF13;
+  border-bottom:2px solid grey;
 }
 .navItem:nth-of-type(6) a:hover {
-background:#CFCF13;
+  background:inherit;
+}
+.navItem:nth-of-type(7) {
+  border-bottom:2px solid grey;
+}
+.navItem:nth-of-type(7) a:hover {
+  background:inherit;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 2s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
 }
 </style>
+</html>

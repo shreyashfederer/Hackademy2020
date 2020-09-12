@@ -12,4 +12,8 @@ export class UploadBillsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  OnSubmit() {
+    
+  }
+
 }
