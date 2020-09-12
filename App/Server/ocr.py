@@ -10,21 +10,7 @@ def get_text_from_url(url):
     response = client.text_detection(image=image)
     texts = response.text_annotations
     return texts
-    # print('Texts:')
-
-    # for text in texts:
-    #     print('\n"{}"'.format(text.description))
-
-    #     vertices = (['({},{})'.format(vertex.x, vertex.y)
-    #                 for vertex in text.bounding_poly.vertices])
-
-    #     print('bounds: {}'.format(','.join(vertices)))
-
-    # if response.error.message:
-    #     raise Exception(
-    #         '{}\nFor more info on error messages, check: '
-    #         'https://cloud.google.com/apis/design/errors'.format(
-    #             response.error.message))
+    
 
 def get_text_from_file(file_path):
     client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
@@ -34,6 +20,7 @@ def get_text_from_file(file_path):
     response = client.text_detection(image=image)
     texts = response.text_annotations
     return texts
+
 
 if __name__ == "__main__":
     get_text_from_url("gs://images-hackathon-288506/images/sampleinvoice.png")
