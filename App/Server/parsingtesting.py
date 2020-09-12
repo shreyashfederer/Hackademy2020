@@ -27,6 +27,7 @@ def get_products(text):
 
                    print("\n")
                 #    print(type(cmppoints['description']))
+                   print(cmppoints.description[0])
                    if(ord(cmppoints.description[0]) in range(46,58)):
 
 
