@@ -27,7 +27,7 @@ def home():
 @app.route('/ocr',methods=['GET', 'POST'])
 def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
 	if request.method == "POST":
-		image = request.files['file']
+		image = request.files['fileKey']
 		if image.filename != None:
 			file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
 			image.save(file_path)
