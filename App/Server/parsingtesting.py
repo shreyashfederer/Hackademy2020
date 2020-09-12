@@ -3,7 +3,7 @@ result = {}
 
 def get_products(text):
   global Products
-
+  print(text)
   for value in text:
        if(str(value.description) in Products):
 
