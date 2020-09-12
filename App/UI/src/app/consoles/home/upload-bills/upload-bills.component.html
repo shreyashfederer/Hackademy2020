@@ -2,17 +2,51 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
+    <div class="jumbotron">
+      <div class="container">
+          <h1>Upload Your bills</h1>
+      </div>
+  </div>
+
 <div class="file-upload">
-  <div class="file-select">
+  <div class="file-select" style="margin-left: 25%; width:50%">
     <div class="file-select-button" id="fileName">Choose File</div>
     <div class="file-select-name" id="noFile">No file chosen...</div> 
-    <input type="file" name="chooseFile" id="chooseFile" (change)="handleFileInput($event.target.files)">
+    <input type="file" name="chooseFile" id="chooseFile" (change)="handleFileInput($event.target.files)" >
   </div>
 </div>
 
+<br/><br/>
 <div class="wrap">
     <button class="button" (click)=OnSubmit()>Submit</button>
   </div>
+
+<br/><br/>
+
+  <table id="example" class="table table-striped table-bordered" style="margin-left: 25%; width:50%" [hidden]="showTable">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+      <li *ngFor="let data of billData">
+        <tr>
+            <td>{{data.sno}}</td>
+            <td>{{data.category}}</td>
+            <td>{{data.amount}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+        </tr>
+    </tfoot>
+</table>
 
 
     <style>
