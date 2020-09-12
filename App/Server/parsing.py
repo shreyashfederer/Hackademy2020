@@ -28,6 +28,7 @@ Spending = {
 
 }
 
+
 ResultSpending = {}
 
 def CategorizeElement(result):
