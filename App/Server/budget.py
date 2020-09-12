@@ -22,8 +22,6 @@ def update_spends(new_data):
 	for key in new_data["spent"].keys():
 		data['budget']['spent'][key] = int(data['budget']['spent'][key]) + int(new_data["spent"][key])
 
-	with open('resources/user.json', 'w') as f:
-		f.write(data)
 	
 	print("Data Updated")
 	print(data)
