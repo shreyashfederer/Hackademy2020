@@ -8,6 +8,8 @@ def get_text_from_url(url):
     image.source.image_uri = url
     response = client.text_detection(image=image)
     texts = response.text_annotations
+    var = json.dumps(texts,indent=4)
+    print(var)
     return texts
     # print('Texts:')
 
