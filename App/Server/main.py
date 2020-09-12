@@ -2,6 +2,7 @@ import io
 import os
 
 from flask import Flask, render_template, request, jsonify, redirect
+from flask_cors import CORS
 
 from ocr import *
 from parsingtesting import *
@@ -9,6 +10,7 @@ from budget import *
 from parsing import *
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['UPLOAD_FOLDER'] = "./uploads/"
 app.config['RESOURCE_FOLDER'] = "./resources/"
