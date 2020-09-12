@@ -38,14 +38,6 @@ def get_products(text):
                        else:
                            splitbydecimal = cmppoints.description.split(".")
                            prices.append(int(splitbydecimal[0].replace(",", "")))
-
-                   else:
-                       if(cmppoints.description != item):
-                           item+= "_"+cmppoints.description
-
-                           
-                           
-                           
            print(prices)    
            print("\n")
            result[item] = max(prices) 
