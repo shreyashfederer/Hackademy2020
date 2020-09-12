@@ -42,3 +42,6 @@ def get_text_from_file(file_path):
     with open('texts.txt','w') as f:
         f.write(texts)
     return texts
+
+if __name__ == "__main__":
+    get_text_from_url("gs://images-hackathon-288506/images/sampleinvoice.png")
