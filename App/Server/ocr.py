@@ -1,6 +1,7 @@
 from google.cloud import vision
 from google.cloud.vision import types
 import json
+import io
 
 def get_text_from_url(url):
     client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
