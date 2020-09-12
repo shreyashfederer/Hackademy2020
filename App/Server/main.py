@@ -32,7 +32,7 @@ def ocr(url = "gs://images-hackathon-288506/images/sampleinvoice.png"):
 			file_path = os.path.join(app.config["UPLOAD_FOLDER"],image.filename)
 			image.save(file_path)
 			print("File saved successfully : {}".format(file_path))
-			texts = get_text_from_file(file.filename)
+			texts = get_text_from_file(file_path)
 			############# Insert Function Call here to identify products & respective value ################
 			parsed_output = get_products(texts)
 			######## and then Mapping to categories ###############
