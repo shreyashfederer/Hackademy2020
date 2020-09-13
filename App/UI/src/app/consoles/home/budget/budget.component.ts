@@ -12,6 +12,10 @@ export class BudgetComponent implements OnInit {
   public total: number
 
   public rooms = [
+    {room: 'Electronics', budget: 100000},
+    {room: 'Grocery', budget: 10000},
+    {room: 'Furniture', budget: 20000},
+    {room: 'Apparels', budget: 15000},
 /*    { room: 'Living Room', budget: 4550 },
     { room: 'Master Bedroom', budget: 2795 },
     { room: 'Office', budget: 1300 },
