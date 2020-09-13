@@ -122,7 +122,8 @@ html, body {
 </style>
 </html>
 <script>
-$('#chooseFile').bind('change', function () {
+$('#chooseFile').bind('click', function () {
+  $("#noFile").text("sampleInvoice.png");
   var filename = $("#chooseFile").val();
   if (/^\s*$/.test(filename)) {
     $(".file-upload").removeClass('active');
