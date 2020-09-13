@@ -14,25 +14,40 @@ HomeItems = ["Sanitizer"]
 
 
 
-Spending = {
+# Spending = {
 
 
-"Electronics" : 0,
-"Furniture": 0,
-"Food": 0,
-"Clothing" : 0,
-"Healthcare" : 0,
-"HomeItems": 0,
-"Other": 0
+# "Electronics" : 0,
+# "Furniture": 0,
+# "Food": 0,
+# "Clothing" : 0,
+# "Healthcare" : 0,
+# "HomeItems": 0,
+# "Other": 0
 
 
-}
+# }
 
 
-ResultSpending = {}
+# ResultSpending = {}
 
 def CategorizeElement(result):
+    Spending = {
 
+
+        "Electronics" : 0,
+        "Furniture": 0,
+        "Food": 0,
+        "Clothing" : 0,
+        "Healthcare" : 0,
+        "HomeItems": 0,
+        "Other": 0
+
+
+    }
+
+
+    ResultSpending = {}
     for (product,price) in result.items():
         if product in ElectronicsItems :
             Spending['Electronics'] += int(price)
