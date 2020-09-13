@@ -30,7 +30,7 @@ export class BudgetComponent implements OnInit {
   constructor(private HomeService: HomeService) { }
 
   ngOnInit(): void {
-    this.total = 0
+    this.total = 145000
   }
 
   test() {
