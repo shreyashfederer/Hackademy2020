@@ -1,3 +1,3 @@
-Flask
+flask
 Flask-Cors
-google-cloud-vision
+google-cloud-vision==1.0.0

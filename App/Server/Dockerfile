@@ -1,10 +1,10 @@
-FROM python
+FROM python:3
 WORKDIR /usr/src/app
 COPY /resources .
 COPY /uploads .
 COPY credentials.json .
 COPY requirements.txt .
-CMD pip install -r requirements.txt
+RUN pip install -r requirements.txt
 COPY budget.py .
 COPY parsingtesting.py .
 COPY parsing.py .
