@@ -1,7 +1,7 @@
 FROM python:3
 WORKDIR /usr/src/app
-COPY /resources .
-COPY /uploads .
+COPY /resources resources
+COPY /uploads uploads
 COPY credentials.json .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
