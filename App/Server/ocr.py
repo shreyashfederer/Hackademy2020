@@ -4,7 +4,7 @@ import json
 import io
 
 def get_text_from_url(url):
-    client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
+    client = vision.ImageAnnotatorClient.from_service_account_json('credentials.json')
     image = vision.types.Image()
     image.source.image_uri = url
     response = client.text_detection(image=image)
@@ -13,7 +13,7 @@ def get_text_from_url(url):
     
 
 def get_text_from_file(file_path):
-    client = vision.ImageAnnotatorClient.from_service_account_json('/home/meenalgoswami115/credentials.json')
+    client = vision.ImageAnnotatorClient.from_service_account_json('credentials.json')
     with io.open(file_path, 'rb') as image_file:
         content = image_file.read()
     image = types.Image(content=content)
